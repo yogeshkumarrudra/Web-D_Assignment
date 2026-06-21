@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Record</title>
+</head>
+<body>
+
+    <h1>Edit Document Entry</h1>
+
+    <form action="/update/<%= data._id %>" method="POST">
+        <p>
+            <label>Bookname:</label><br>
+            <input type="text" name="bookname" value="<%= data.bookname %>" required>
+        </p>
+
+        <p>
+            <label>Author:</label><br>
+            <input type="text" name="author" value="<%= data.author %>" required>
+        </p>
+
+        <p>
+            <label>Category:</label><br>
+            <input type="text" name="category" value="<%= data.category %>" required>
+        </p>
+
+        <p>
+            <label>Price:</label><br>
+            <input type="number" name="price" value="<%= data.price %>" required>
+        </p>
+
+        <p>
+            <label>Quantity:</label><br>
+            <input type="number" name="quantity" value="<%= data.quantity %>" required>
+        </p>
+
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <br>
+    <a href="/">Cancel Changes</a>
+
+</body>
+</html>

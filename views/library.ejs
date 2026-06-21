@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Database Dashboard</title>
+</head>
+<body>
+
+    <h1>Records Database Dashboard</h1>
+    
+    <p>
+        <a href="/insertdata">Add New Record Entry</a>
+    </p>
+
+    <hr>
+
+    <% if (allbook.length === 0) { %>
+        <p>No records found inside the database schema collection.</p>
+    <% } else { %>
+        <% allbook.forEach((element) => { %> <div>
+                <h2>Name: <%= element.bookname %></h2> 
+                <p>Author: <%= element.author %></p>
+                <p>Category: <%= element.category %></p>
+                <p>Price: <%= element.price %></p>
+                <p>Quantity: <%= element.quantity %></p>
+  
+                <p>
+                    <a href="/edit/<%= element._id %>">Edit Entry</a> | 
+                    <a href="/Delete/<%= element._id %>" onclick="return confirm('Confirm document removal?')">Delete Entry</a>
+                </p>
+                <hr>
+            </div>
+        <% }) %>
+    <% } %>
+
+</body>
+</html>

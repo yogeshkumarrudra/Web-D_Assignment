@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Record</title>
+</head>
+<body>
+
+    <h1>Add New Entry Record</h1>
+
+    <form action="/createdata" method="POST">
+        <p>
+            <label>Bookname:</label><br>
+            <input type="text" name="bookname" required>
+        </p>
+
+        <p>
+            <label>Author:</label><br>
+            <input type="text" name="author" required>
+        </p>
+
+        <p>
+            <label>Category:</label><br>
+            <input type="text" name="category" required>
+        </p>
+
+        <p>
+            <label>Price:</label><br>
+            <input type="number" name="price" required>
+        </p>
+
+        <p>
+            <label>Quantity:</label><br>
+            <input type="number" name="quantity" required>
+        </p>
+
+        
+
+        <button type="submit">Submit Entry</button>
+    </form>
+
+    <br>
+    <a href="/">Cancel & Back Dashboard</a>
+
+</body>
+</html>
