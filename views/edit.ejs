@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -39,6 +39,134 @@
 
     <br>
     <a href="/">Cancel Changes</a>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amend the Record — Athenaeum</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Inter:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+
+    <style>
+        :root{
+            --paper:#F2EDE3; --card:#FBF8F0; --ink:#2B2620; --ink-soft:#6B6254;
+            --green:#2F4F3E; --green-dark:#1E3527; --brass:#B8862E; --brass-dark:#8F6A1E;
+            --brass-pale:#F1E2C2; --stamp-red:#8C3B33; --rule: rgba(43,38,32,.18);
+            --shadow: 0 14px 34px -16px rgba(43,38,32,.45);
+        }
+        *{ box-sizing:border-box; }
+        body{
+            margin:0; min-height:100vh; background-color:var(--paper);
+            background-image: radial-gradient(circle at 1px 1px, rgba(43,38,32,.06) 1px, transparent 0);
+            background-size: 20px 20px; color:var(--ink);
+            font-family:'Inter',-apple-system,sans-serif; -webkit-font-smoothing:antialiased; line-height:1.5;
+        }
+        h1,h2,h3{ font-family:'Fraunces','Georgia',serif; margin:0; color:var(--ink); }
+        a{ color:inherit; }
+        .wrap{ max-width:600px; margin:0 auto; padding:0 24px 80px; }
+
+        .shelf-strip{ display:flex; align-items:flex-end; gap:5px; height:30px; padding:0 18px; overflow:hidden; border-bottom:3px solid var(--ink); }
+        .shelf-strip span{ display:block; width:9px; border-radius:2px 2px 0 0; }
+        .shelf-strip span:nth-child(odd){ background:var(--green); }
+        .shelf-strip span:nth-child(even){ background:var(--brass); }
+        .shelf-strip span:nth-child(5n){ background:var(--stamp-red); }
+        .shelf-strip span:nth-child(1){ height:55%; } .shelf-strip span:nth-child(2){ height:90%; }
+        .shelf-strip span:nth-child(3){ height:70%; } .shelf-strip span:nth-child(4){ height:100%; }
+        .shelf-strip span:nth-child(5){ height:60%; } .shelf-strip span:nth-child(6){ height:80%; }
+        .shelf-strip span:nth-child(7){ height:65%; } .shelf-strip span:nth-child(8){ height:95%; }
+        .shelf-strip span:nth-child(9){ height:50%; } .shelf-strip span:nth-child(10){ height:85%; }
+        .shelf-strip span:nth-child(11){ height:72%; } .shelf-strip span:nth-child(12){ height:60%; }
+        .shelf-strip span:nth-child(13){ height:92%; } .shelf-strip span:nth-child(14){ height:68%; }
+        .shelf-strip span:nth-child(15){ height:78%; } .shelf-strip span:nth-child(16){ height:55%; }
+        .shelf-strip span:nth-child(17){ height:88%; } .shelf-strip span:nth-child(18){ height:62%; }
+        .shelf-strip span:nth-child(19){ height:96%; } .shelf-strip span:nth-child(20){ height:58%; }
+
+        .stamp{ display:inline-flex; align-items:center; font-family:'Special Elite',monospace; font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; padding:6px 11px; border:1.5px solid currentColor; border-radius:3px; transform:rotate(-2deg); white-space:nowrap; margin-top:16px; }
+        .stamp--green{ color:var(--green); }
+
+        .btn{ font-family:'Special Elite',monospace; text-transform:uppercase; letter-spacing:.04em; font-size:.82rem; display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:4px; border:2px solid var(--ink); background:var(--brass-dark); color:var(--card); cursor:pointer; text-decoration:none; box-shadow:3px 3px 0 var(--ink); transition:transform .15s ease, box-shadow .15s ease; }
+        .btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+        .btn:active{ transform:translate(0,0); box-shadow:1px 1px 0 var(--ink); }
+        .btn:focus-visible{ outline:3px solid var(--green); outline-offset:3px; }
+
+        .text-link{ font-family:'Inter',sans-serif; font-size:.92rem; color:var(--ink-soft); text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:1px; transition:color .15s ease, border-color .15s ease; }
+        .text-link:hover{ color:var(--ink); border-color:var(--ink); }
+        .text-link:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
+
+        .brand{ font-family:'Fraunces',serif; font-weight:600; font-size:1.05rem; letter-spacing:.01em; }
+        .page-header{ padding:36px 0 28px; }
+        .page-header h1{ font-size:clamp(1.9rem, 4vw, 2.6rem); font-weight:600; margin:14px 0 10px; }
+        .page-header p{ color:var(--ink-soft); max-width:46ch; margin:0; }
+
+        .ledger{ background:var(--card); border:1px solid var(--rule); border-radius:8px; padding:38px 36px 34px; box-shadow:var(--shadow); margin-top:8px; background-image: repeating-linear-gradient(to bottom, transparent 0 47px, var(--rule) 47px 48px); background-position: 0 86px; }
+        .field{ margin-bottom:26px; }
+        .field label{ display:block; font-family:'Special Elite',monospace; font-size:.68rem; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px; }
+        .field input{ width:100%; border:none; border-bottom:2px solid var(--rule); background:transparent; font-family:'Inter',sans-serif; font-size:1.08rem; padding:6px 2px 10px; color:var(--ink); transition:border-color .2s ease; }
+        .field input:focus{ outline:none; border-bottom-color:var(--brass); }
+        .field input:focus-visible{ outline:2px solid var(--brass); outline-offset:5px; border-radius:2px; }
+        .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+        .form-actions{ display:flex; align-items:center; gap:22px; margin-top:34px; flex-wrap:wrap; }
+
+        @media (max-width: 600px){ .wrap{ padding:0 18px 60px; } .field-row{ grid-template-columns:1fr; } .ledger{ padding:28px 22px 26px; } }
+        @media (prefers-reduced-motion: reduce){ *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; } }
+    </style>
+</head>
+<body>
+
+    <div class="shelf-strip" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="wrap">
+        <header class="page-header">
+            <span class="brand">Athenaeum</span>
+            <br>
+            <span class="stamp stamp--green">Revision</span>
+            <h1>Amend the Record</h1>
+            <p>Update any field below, then save the change to the ledger.</p>
+        </header>
+
+        <form class="ledger" action="/update/<%= data._id %>" method="POST">
+            <div class="field">
+                <label for="bookname">Title</label>
+                <input type="text" id="bookname" name="bookname" value="<%= data.bookname %>" required>
+            </div>
+
+            <div class="field">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" value="<%= data.author %>" required>
+            </div>
+
+            <div class="field">
+                <label for="category">Category</label>
+                <input type="text" id="category" name="category" value="<%= data.category %>" required>
+            </div>
+
+            <div class="field-row">
+                <div class="field">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" name="price" value="<%= data.price %>" step="0.01" required>
+                </div>
+                <div class="field">
+                    <label for="quantity">Copies on Hand</label>
+                    <input type="number" id="quantity" name="quantity" value="<%= data.quantity %>" required>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn" type="submit">Save Changes</button>
+                <a class="text-link" href="/">Cancel changes</a>
+            </div>
+        </form>
+    </div>
 
 </body>
 </html>
