@@ -9,4 +9,4 @@ const librarySchema = new mongoose.Schema({
 })
 
 
-module.exports = mongoose.model("librarymodel",librarySchema)
+module.exports = mongoose.model("Library",librarySchema)

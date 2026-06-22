@@ -75,9 +75,7 @@ const librarycontroller = {
 
         // 5. Update entry
     updatebook: async (req, res) => {
-        await librarymodel.findByIdAndUpdate(req.params.id, req.body, {
-            new: true
-        });
+        await librarymodel.findByIdAndUpdate(req.params.id, req.body, {new: true});
         res.redirect("/getdata");
     },
 
